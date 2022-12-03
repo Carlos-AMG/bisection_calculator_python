@@ -51,7 +51,6 @@ def plot(f, a, b, tolerancia):
         funcionC = f(c)
 
         second_axis = axis.secondary_xaxis("top")
-        etiquetas = [item.get_text() for item in second_axis.get_xticklabels()]
         etiquetas = ["a", "b"]
         second_axis.set_xticks([a, b])
         second_axis.set_xticklabels(etiquetas)
@@ -62,7 +61,7 @@ def plot(f, a, b, tolerancia):
         plt.axvline(x=a, c='blue',linewidth=2,alpha=0.5)
         plt.axvline(x=b, c='blue',linewidth=2,alpha=0.5)
 
-        plt.pause(5) #1
+        plt.pause(1) #1
         plt.rcParams.update({'font.size': 16})
         plt.title(r"$\bf{ITERACION} $ #" + str(iteracion+1) + '\n\na = % 10.8f;       b = % 10.8f;      c = % 10.8f;       f(c) = % 10.8f'%(a, b, c, funcionC))
         plt.rcParams.update({'font.size': 16})
@@ -78,7 +77,7 @@ def plot(f, a, b, tolerancia):
 
         # Impresion a la tabla en la CLI
         print(str(iteracion + 1) + "\t% 10.8f\t% 10.8f\t% 10.8f\t% 10.8f\t" % (a,b,c,funcionC))
-        plt.pause(5)#1
+        plt.pause(1)#1
         
         # Verificar que la raiz este entre a y c, si no entonces esta entre b y c
         if funcionA * funcionC < 0:
@@ -87,7 +86,7 @@ def plot(f, a, b, tolerancia):
             texto.set_bbox(dict(facecolor="whitesmoke", alpha=0.5, edgecolor="whitesmoke"))
             plt.scatter(a, funcionA, c="yellow", s=175, alpha=1)
             plt.scatter(c, funcionC, c="yellow", s=175, alpha=1)
-            plt.pause(5) #1
+            plt.pause(1) #1
             b = c
         else:
             # Cambiamos el lower bound
@@ -96,9 +95,9 @@ def plot(f, a, b, tolerancia):
             texto.set_bbox(dict(facecolor="whitesmoke", alpha=0.5, edgecolor="whitesmoke"))
             plt.scatter(b, funcionB, c="yellow", s=175, alpha=1)
             plt.scatter(c, funcionC, c="yellow", s=175, alpha=1)
-            plt.pause(5) #1
+            plt.pause(1) #1
 
-        plt.pause(5) # 2
+        plt.pause(2) # 2
 
         # Verificar que la raiz haya sido encontrada en la iteracion actual, con el error aceptable
         # En caso de ser verdad terminamos la funcion
